@@ -1,3 +1,4 @@
+import {parseModules} from "@/lib/home-modules";
 import {readRecipes} from "@/lib/recipes";
 import {periodDefaults,validPeriodDate} from "@/lib/periods";
 import {parseTabs} from "@/lib/extra-tabs";
@@ -10,6 +11,8 @@ export async function POST(request:Request) {
   const entries=Object.entries(input);
   function valid(key:string,value:unknown): value is string {
     if(typeof value!=="string") return false;
+    if(key==="homeBanner") return value==="" || /^\/api\/media\/[a-f0-9-]{36}$/.test(value);
+    if(key==="homeModules"){try{parseModules(value);return true;}catch{return false;}}
     if(key==="recipes"){try{readRecipes(value);return true;}catch{return false;}}
     if(key==="extraTabs"){try{parseTabs(value);return true;}catch{return false;}}
     if(Object.hasOwn(periodDefaults,key))return validPeriodDate(value);
