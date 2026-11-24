@@ -1,3 +1,4 @@
+import {CardFace} from "@/components/guide-design";
 import Countdowns from "@/components/countdowns";
 import {periodDefaults} from "@/lib/periods";
 import {parseTabs} from "@/lib/extra-tabs";
@@ -42,7 +43,7 @@ export default async function Home() {
           </div>
           <nav aria-label="위키 주제" className="mt-5 flex gap-6 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-sky-100/85">
             {navigation(t).filter(([,href]) => settings["hide-"+href.slice(1)] !== "yes").map(([name, href]) => <a key={name} href={href} className="transition hover:text-[#ffd84b]">{name}</a>)}
-            {tabs.map(tab=><a key={tab.id} href={"/guide/"+tab.id}>{tab.title}</a>)}
+            {tabs.filter(tab=>tab.menu!==false).map(tab=><a key={tab.id} href={"/guide/"+tab.id}>{tab.title}</a>)}
           </nav>
         </div>
       </header>
@@ -75,11 +76,12 @@ export default async function Home() {
             <p className="max-w-xl leading-7 text-sky-100/80">{t("ocean-22")}</p>
           </div>
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[["01", t("ocean-23"), t("ocean-24")], ["02", t("ocean-25"), t("ocean-26")], ["03", t("ocean-27"), t("ocean-28")], ["04", t("ocean-29"), t("ocean-30")]].map(([number,title,body]) => <a href={number==="01"||number==="03"?"/wiki/exploration":"/wiki/cooking"} key={number} className="overflow-hidden rounded-xl border-2 border-[#8f572d] bg-[linear-gradient(155deg,#56381f,#30283a_70%)] p-5 shadow-[inset_0_0_0_2px_#d7a15944]"><p className="inline-grid size-9 place-items-center rounded-full border-2 border-[#9e5b24] bg-[#ffd439] font-black text-[#1d2b43] shadow-[inset_0_-3px_0_#e79d23]">{number}</p><h3 className="mt-4 text-lg font-extrabold text-[#ffe084]">{title}</h3><p className="mt-2 leading-6 text-white/80">{body}</p></a>)}
+            {[["01", t("ocean-23"), t("ocean-24")], ["02", t("ocean-25"), t("ocean-26")], ["03", t("ocean-27"), t("ocean-28")], ["04", t("ocean-29"), t("ocean-30")]].map(([number,title,body]) => <a href={number==="01"||number==="03"?"/wiki/exploration":"/wiki/cooking"} key={number} className="overflow-hidden rounded-xl border-2 border-[#8f572d] bg-[linear-gradient(155deg,#56381f,#30283a_70%)] p-5 shadow-[inset_0_0_0_2px_#d7a15944]"><p className="inline-grid size-9 place-items-center rounded-full border-2 border-[#9e5b24] bg-[#ffd439] font-black text-[#1d2b43] shadow-[inset_0_-3px_0_#e79d23]">{number}</p><h3 className="mt-4 text-lg font-extrabold text-[#ffe084]">{title}</h3><p className="mt-2 leading-6 text-white/80">{body}</p></a>)}{tabs.filter(tab=>tab.placement==="ocean"&&!tab.image).map((tab,i)=><a key={tab.id} href={"/guide/"+tab.id}><CardFace tab={tab} number={5+i}/></a>)}
           </div>
           <div className="mt-7 grid gap-5 md:grid-cols-2">
             <a href="/wiki/exploration/harbor" className="overflow-hidden rounded-2xl border-2 border-[#80502f] bg-[#382a31] shadow-xl shadow-black/20"><figure><img src="/images/sushiro-ocean-port.webp" alt="바다와 섬 사이에 자리한 마인크래프트 항구와 배" className="aspect-[16/8] w-full object-cover"/><figcaption className="border-t border-[#c38a4a]/40 px-5 py-4"><h3 className="font-bold text-[#ffe084]">{t("ocean-31")}</h3><p className="mt-1 text-sm text-white/70">{t("ocean-32")}</p></figcaption></figure></a>
             <a href="/wiki/exploration/town" className="overflow-hidden rounded-2xl border-2 border-[#80502f] bg-[#382a31] shadow-xl shadow-black/20"><figure><img src="/images/sushiro-town.webp" alt="벚꽃과 전통 건물이 어우러진 마인크래프트 마을" className="aspect-[16/8] w-full object-cover"/><figcaption className="border-t border-[#c38a4a]/40 px-5 py-4"><h3 className="font-bold text-[#ffe084]">{t("ocean-33")}</h3><p className="mt-1 text-sm text-white/70">{t("ocean-34")}</p></figcaption></figure></a>
+            {tabs.filter(tab=>tab.placement==="ocean"&&tab.image).map(tab=><a key={tab.id} href={"/guide/"+tab.id}><CardFace tab={tab}/></a>)}
           </div>
           <p className="mt-4 text-sm text-sky-100/65">{t("ocean-35")}<a className="underline decoration-sky-100/40 underline-offset-4 hover:text-white" href={posterUrl} target="_blank" rel="noopener noreferrer">{t("ocean-36")}</a>{t("ocean-37")}</p>
         </section>
@@ -101,8 +103,8 @@ export default async function Home() {
         </section>
 
         <section style={{order: order.indexOf("index"),display:settings["hide-index"]==="yes"?"none":undefined}} id="index" className="border-t border-sky-100/15 pt-9">
-          <p className="text-sm font-black tracking-[.16em] text-[#4bd4f5]">{t("index-57")}</p><h2 className="mt-2 text-2xl font-black">{t("index-58")}</h2><p className="mt-1 text-sky-100/70">{t("index-59")}</p>{tabs.length>0&&<div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{tabs.map(tab=><a className="overflow-hidden rounded-xl bg-sky-950" key={tab.id} href={"/guide/"+tab.id}>{tab.image&&<img src={tab.image} alt={tab.alt} className="aspect-video w-full object-cover"/>}<strong className="block p-4 text-amber-300">{tab.title}</strong></a>)}</div>}
-          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{[[t("index-60"), t("index-61"), "/wiki/exploration"], [t("index-62"), t("index-63"), "/wiki/cooking"], [t("index-64"), t("index-65"), "/wiki/orders"], [t("index-66"), t("index-67"), "/wiki/recruitment"], [t("index-68"), t("index-69"), "/wiki/streamers"], [t("index-70"), t("index-71"), "/wiki/api"]].map(([title,body,href]) => <a key={title} href={href} className="rounded-xl border border-sky-200/20 bg-[#0c2853] p-5 transition hover:border-[#ffd43b]/75 hover:bg-[#12356b]"><h3 className="font-extrabold text-[#ffe084]">{title}</h3><p className="mt-2 text-sm leading-6 text-sky-100/75">{body}</p></a>)}</div>
+          <p className="text-sm font-black tracking-[.16em] text-[#4bd4f5]">{t("index-57")}</p><h2 className="mt-2 text-2xl font-black">{t("index-58")}</h2><p className="mt-1 text-sky-100/70">{t("index-59")}</p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{[[t("index-60"), t("index-61"), "/wiki/exploration"], [t("index-62"), t("index-63"), "/wiki/cooking"], [t("index-64"), t("index-65"), "/wiki/orders"], [t("index-66"), t("index-67"), "/wiki/recruitment"], [t("index-68"), t("index-69"), "/wiki/streamers"], [t("index-70"), t("index-71"), "/wiki/api"]].map(([title,body,href]) => <a key={title} href={href} className="rounded-xl border border-sky-200/20 bg-[#0c2853] p-5 transition hover:border-[#ffd43b]/75 hover:bg-[#12356b]"><h3 className="font-extrabold text-[#ffe084]">{title}</h3><p className="mt-2 text-sm leading-6 text-sky-100/75">{body}</p></a>)}{tabs.filter(tab=>tab.placement!=="ocean").map(tab=><a key={tab.id} href={"/guide/"+tab.id}><CardFace tab={tab}/></a>)}</div>
         </section>
 
         <section style={{order: order.indexOf("api"),display:settings["hide-api"]==="yes"?"none":undefined}} id="api" className="rounded-2xl border-2 border-[#916039] bg-[linear-gradient(115deg,#3b2b24,#1b2b49)] p-6 shadow-[inset_0_0_0_2px_#e4b76a22] sm:p-8">
