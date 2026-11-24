@@ -46,5 +46,11 @@
     "title": "patch-notes-title",
     "summary": "patch-notes-summary",
     "body": "doc-patch-notes"
+  },
+  {
+    "slug": "rules",
+    "title": "rules-title",
+    "summary": "rules-summary",
+    "body": "doc-rules"
   }
 ]

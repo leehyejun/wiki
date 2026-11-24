@@ -12,7 +12,7 @@ export default function GuideMenu({labels,tabs,current,compact}:Props) {
   const groups = [
     {title:"플레이 가이드", links:docs.filter(d=>["exploration","cooking","orders","gear"].includes(d.slug)).map(d=>({href:"/wiki/"+d.slug,title:labels[d.title]}))},
     {title:"방송과 참여", links:docs.filter(d=>["recruitment","streamers","api"].includes(d.slug)).map(d=>({href:"/wiki/"+d.slug,title:labels[d.title]}))},
-    {title:"서버 소식",links:[{href:"/wiki/patch-notes",title:labels["patch-notes-title"]}]},
+    {title:"운영 안내",links:[{href:"/wiki/rules",title:labels["rules-title"]},{href:"/wiki/patch-notes",title:labels["patch-notes-title"]}]},
     {title:"추가 문서", links:tabs.filter(tab=>tab.menu!==false).map(tab=>({href:"/guide/"+tab.id,title:tab.title}))},
   ].filter(group=>group.links.length);
   const contents = <nav aria-label="주제별 문서" className="guide-groups">{groups.map(group=><section key={group.title}><h2>{group.title}</h2>{group.links.map(link=><a key={link.href} href={link.href} aria-current={link.href===current?"page":undefined}>{link.title}</a>)}</section>)}</nav>;
