@@ -9,3 +9,11 @@ export const documents = sqliteTable("documents", {
   updatedAt: integer("updated_at").notNull(),
   updatedBy: text("updated_by").notNull(),
 });
+
+export const streamers = sqliteTable("streamers", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  stationUrl: text("station_url").notNull(),
+  createdAt: integer("created_at").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+});

@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "블록로그 서버 위키",
-  description: "마인크래프트 서버 커뮤니티 안내와 위키",
-  other: {
-    "codex-preview": "development",
-  },
+  title: "스시로 서버 위키",
+  description: "스시로 서버의 바다 탐험, 낚시, 초밥 요리와 방송인 안내",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
