@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SiteTabs from "@/components/site-tabs";
 
 export const metadata: Metadata = {
   title: "스시로 서버 Wiki",
@@ -17,8 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased"><SiteTabs/>{children}</body>
     </html>
   );
 }
+
 
