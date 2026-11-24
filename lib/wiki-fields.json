@@ -199,55 +199,15 @@
     "label": "시청자 주문을 모두 제출하면 졸업하는 목표가 준비되어 있습니다. 수중 감옥과 바다의 도전도 모집 공지에서 확인할 수 있습니다.",
     "value": "시청자 주문을 모두 제출하면 졸업하는 목표가 준비되어 있습니다. 수중 감옥과 바다의 도전도 모집 공지에서 확인할 수 있습니다."
   },
-  "schedule-41": {
-    "group": "schedule",
-    "label": "RECRUITMENT",
-    "value": "RECRUITMENT"
-  },
-  "schedule-42": {
-    "group": "schedule",
-    "label": "모집 공지 일정",
-    "value": "모집 공지 일정"
-  },
-  "schedule-43": {
-    "group": "schedule",
-    "label": "SOOP 원문에서 확인",
-    "value": "SOOP 원문에서 확인"
-  },
-  "schedule-44": {
-    "group": "schedule",
-    "label": "공지 게시 시점의 일정입니다. 변경 내용은 원문 공지를 우선 확인해 주세요.",
-    "value": "공지 게시 시점의 일정입니다. 변경 내용은 원문 공지를 우선 확인해 주세요."
-  },
   "schedule-45": {
-    "group": "schedule",
+    "group": "server",
     "label": "모집",
     "value": "모집"
   },
   "schedule-46": {
-    "group": "schedule",
+    "group": "server",
     "label": "11월 26일 – 1월 4일 22:00",
     "value": "11월 26일 – 1월 4일 22:00"
-  },
-  "schedule-47": {
-    "group": "schedule",
-    "label": "인원 발표",
-    "value": "인원 발표"
-  },
-  "schedule-48": {
-    "group": "schedule",
-    "label": "1월 5일 18:00",
-    "value": "1월 5일 18:00"
-  },
-  "schedule-49": {
-    "group": "schedule",
-    "label": "서버 기간",
-    "value": "서버 기간"
-  },
-  "schedule-50": {
-    "group": "schedule",
-    "label": "1월 10일 – 24일 · 2주",
-    "value": "1월 10일 – 24일 · 2주"
   },
   "people-51": {
     "group": "people",
@@ -323,16 +283,6 @@
     "group": "index",
     "label": "시청자 참여와 졸업 목표",
     "value": "시청자 참여와 졸업 목표"
-  },
-  "index-66": {
-    "group": "index",
-    "label": "모집 일정",
-    "value": "모집 일정"
-  },
-  "index-67": {
-    "group": "index",
-    "label": "참가 신청 공지와 기간",
-    "value": "참가 신청 공지와 기간"
   },
   "index-68": {
     "group": "index",
@@ -423,11 +373,6 @@
     "group": "문서 본문",
     "label": "주문 콘텐츠",
     "value": "시청자들의 주문을 모두 제출하면 졸업합니다. 아쿠아리움에 갇히면 작살로 물고기를 잡아 탈출하세요."
-  },
-  "doc-recruitment": {
-    "group": "문서 본문",
-    "label": "모집 일정",
-    "value": "모집 공지에 실린 일정입니다. 신청 전 SOOP 원문에서 최신 일정을 확인하세요."
   },
   "doc-streamers": {
     "group": "문서 본문",

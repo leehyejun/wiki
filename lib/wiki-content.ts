@@ -1,6 +1,6 @@
 import { env } from "cloudflare:workers";
 import fields from "./wiki-fields.json";
-export const sections = ["ocean","orders","schedule","people","index","api"];
+export const sections = ["ocean","orders","people","index","api"];
 export const defaults = Object.fromEntries(Object.entries(fields).map(([key, field]) => [key, field.value]));
 export async function readSettings(): Promise<Record<string,string>> {
   const exists = await env.DB.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='wiki_settings'").first();

@@ -3,7 +3,7 @@ import Countdowns from "@/components/countdowns";
 import {periodDefaults} from "@/lib/periods";
 import { useState } from "react";
 import fields from "@/lib/wiki-fields.json";
-const names:Record<string,string>={server:"메인 소개",ocean:"바다와 요리",orders:"주문 콘텐츠",schedule:"모집 일정",people:"참가 방송인",index:"위키 문서",api:"API 안내",footer:"하단"};
+const names:Record<string,string>={server:"메인 소개",ocean:"바다와 요리",orders:"주문 콘텐츠",people:"참가 방송인",index:"위키 문서",api:"API 안내",footer:"하단"};
 const sections=Object.keys(names).filter(key=>!["server","footer"].includes(key));
 export default function Customizer({initial}:{initial:Record<string,string>}) {
  const groups=Array.from(new Set(Object.values(fields).map(f=>f.group)));
@@ -13,7 +13,7 @@ export default function Customizer({initial}:{initial:Record<string,string>}) {
  const [busy,setBusy]=useState(false);
  const value=(key:string,fallback:string)=>changes[key]??initial[key]??fallback;
  const edit=(key:string,v:string)=>{setChanges(prev=>({...prev,[key]:v}));status("");};
- const order=value("order",sections.join(",")).split(",");
+ const order=value("order",sections.join(",")).split(",").filter(key=>sections.includes(key));
  function move(i:number,delta:number){const next=[...order];[next[i],next[i+delta]]=[next[i+delta],next[i]];edit("order",next.join(","));}
  async function save(){setBusy(true);try{const response=await fetch("/api/customize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.keys(changes).some(k=>k in periodDefaults)?{...changes,...Object.fromEntries(Object.entries(periodDefaults).map(([k,v])=>[k,value(k,v)]))}:changes)});status(response.ok?"공개 사이트에 저장했습니다.":"저장하지 못했습니다. 권한과 빈 입력란을 확인하세요.");}catch{status("연결을 확인한 뒤 다시 저장하세요.");}finally{setBusy(false);}}
  return <section className="mt-10 space-y-4"><h2 className="text-2xl font-bold">커스텀 모드</h2><label className="block">편집 영역 <select className="rounded bg-slate-800 p-2" value={panel} onChange={e=>setPanel(e.target.value)}><option value="dates">카운트다운 일정</option><option value="layout">홈 배치</option>{groups.map(g=><option key={g} value={g}>{names[g]??g}</option>)}</select></label><div className="grid items-start gap-4 lg:grid-cols-2"><fieldset disabled={busy} className="space-y-3">{panel==="dates"&&<details open className="rounded bg-slate-800 p-4"><summary>헤더 카운트다운 일정 · 한국 시간</summary><p className="my-3 text-sm">종료 시각에 카운트다운이 종료됩니다. 24일 하루 전체를 포함하려면 25일 00:00으로 입력하세요.</p>{Object.entries(periodDefaults).map(([key,v],i)=><label key={key} className="my-2 block">{["모집 시작","모집 마감","서버 시작","서버 종료"][i]} <input type="datetime-local" className="bg-slate-950 p-2" value={value(key,v)} onChange={e=>edit(key,e.target.value)}/></label>)}</details>}{panel==="layout"&&<details open className="rounded bg-slate-800 p-4"><summary>화면 배치</summary><label className="my-4 block">메인 이미지 위치 <select className="bg-slate-950 p-2" value={value("heroSide","right")} onChange={e=>edit("heroSide",e.target.value)}><option value="left">왼쪽</option><option value="right">오른쪽</option></select></label>{order.map((key,i)=><div key={key} className="flex items-center gap-4 py-2"><label className="grow"><input type="checkbox" checked={value("hide-"+key,"no")!=="yes"} onChange={e=>edit("hide-"+key,e.target.checked?"no":"yes")}/> {names[key]}</label><button disabled={!i} onClick={()=>move(i,-1)}>위로</button><button disabled={i===order.length-1} onClick={()=>move(i,1)}>아래로</button></div>)}</details>}
