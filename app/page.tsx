@@ -21,7 +21,7 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3 font-bold tracking-tight">
-              <span className="grid size-11 place-items-center rounded-xl border-2 border-[#a85827] bg-[#ffc72c] shadow-[inset_0_-4px_0_#e59c20]" aria-hidden="true"><svg viewBox="0 0 48 48" className="size-8" role="img"><path d="M7 23c1-5 7-8 17-8s16 3 17 8v12c0 4-7 7-17 7S7 39 7 35V23Z" fill="#fff8e8" stroke="#9c5a34" strokeWidth="2.5"/><path d="M9 20c2-6 8-10 15-10s13 4 15 10c-3 3-9 5-15 5s-12-2-15-5Z" fill="#fa806b" stroke="#9c442f" strokeWidth="2.5"/><path d="M15 17c2-2 5-3 9-3" fill="none" stroke="#ffb3a4" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src="/images/sushiro-header-mark.webp" alt="" width="44" height="44" className="size-11 object-contain" />
               <span className="text-lg">스시로 서버 <span className="font-normal text-sky-100/75">Wiki</span></span>
             </Link>
             <div className="flex items-center gap-3">
@@ -51,16 +51,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="order-1 mx-auto flex w-full max-w-[940px] flex-col items-center gap-2 lg:order-2 lg:max-w-none lg:gap-3">
-            <img src="/images/sushiro-promo-logo.webp" alt="스시로 서버 · 초밥 요리 서버" className="w-[58%] max-w-[500px] drop-shadow-[0_12px_24px_#001b4d99]" />
-            <div className="grid w-full grid-cols-2 gap-2 sm:gap-3">
-              {[1,2,3,4].map((scene) => <img key={scene} src={'/images/sushiro-promo-scene-' + scene + '.webp'} alt={[
-                '직접 작살로 바다에서 생선을 잡아 초밥을 요리',
-                '강화로 더 깊은 바다에 가서 고급 초밥 제작',
-                '아쿠아리움에 갇히면 작살로 물고기를 잡아 탈출',
-                '시청자 주문을 모두 제출하고 졸업',
-              ][scene-1]} className="h-auto w-full drop-shadow-[0_8px_18px_#001b4d99]" />)}
-            </div>
-            <img src="/images/sushiro-promo-slogan.webp" alt="지금 바로 스시로 서버의 세계로 뛰어드세요" className="mt-1 w-[72%] max-w-[620px] drop-shadow-[0_10px_24px_#001b4d99]" />
+            <img src="/images/sushiro-promo-final.webp" alt="스시로 서버 · 초밥 요리 서버. 작살로 물고기를 잡아 요리하고, 강화로 깊은 바다에 도전합니다. 아쿠아리움에서 탈출하고 시청자 주문을 모두 제출하면 졸업합니다." className="block h-auto w-full" />
           </div>
         </div>
       </section>
