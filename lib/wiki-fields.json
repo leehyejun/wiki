@@ -438,5 +438,25 @@
     "group": "문서 본문",
     "label": "API 안내",
     "value": "방송인 보상 항목과 지급 조건, 연동 방법은 운영진이 확정한 뒤 이 문서에 게시합니다."
+  },
+  "region-harbor-title": {
+    "group": "지역 문서",
+    "label": "항구 이름",
+    "value": "항구"
+  },
+  "region-harbor-body": {
+    "group": "지역 문서",
+    "label": "항구 설명",
+    "value": "모집 공지에서 소개한 항구입니다. 해안선을 따라 배와 부두가 이어지고, 바다 너머로 섬이 보입니다."
+  },
+  "region-town-title": {
+    "group": "지역 문서",
+    "label": "마을 이름",
+    "value": "마을"
+  },
+  "region-town-body": {
+    "group": "지역 문서",
+    "label": "마을 설명",
+    "value": "모집 공지에서 소개한 마을입니다. 벚꽃 사이에 전통 양식의 건물이 모여 있는 풍경을 살펴볼 수 있습니다."
   }
 }

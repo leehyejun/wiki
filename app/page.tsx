@@ -1,3 +1,4 @@
+import StationCards from "@/components/station-cards";
 import { defaults, readSettings, sections } from "@/lib/wiki-content";
 import Link from "next/link";
 import { getDb } from "@/db";
@@ -89,7 +90,7 @@ export default async function Home() {
         <section style={{order: order.indexOf("people"),display:settings["hide-people"]==="yes"?"none":undefined}} id="people" className="border-t border-sky-100/15 pt-9">
           <p className="text-sm font-black tracking-[.16em] text-[#4bd4f5]">{t("people-51")}</p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3"><div><h2 className="text-2xl font-black">{t("people-52")}</h2><p className="mt-1 text-sky-100/70">{t("people-53")}</p></div><Link href="/admin" className="font-bold text-[#ffdc48]">{t("people-54")}</Link></div>
-          {broadcasterRows.length ? <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{broadcasterRows.map((row) => <article key={row.id} className="rounded-xl border-2 border-[#80502f] bg-[linear-gradient(145deg,#49311f,#202b45)] p-5"><h3 className="text-lg font-extrabold text-[#ffe084]">{row.name}</h3><a className="mt-4 inline-flex rounded-lg border border-[#a85827] bg-[#ffd333] px-4 py-2 font-bold text-[#182a44] shadow-[inset_0_-3px_0_#e19a1b]" href={row.stationUrl} target="_blank" rel="noopener noreferrer">{t("people-55")}</a></article>)}</div> : <p className="mt-6 rounded-xl border border-dashed border-sky-100/30 p-6 text-sky-100/70">{t("people-56")}</p>}
+          {broadcasterRows.length ? <StationCards rows={broadcasterRows} linkLabel={t("people-55")}/> : <p className="mt-6 rounded-xl border border-dashed border-sky-100/30 p-6 text-sky-100/70">{t("people-56")}</p>}
         </section>
 
         <section style={{order: order.indexOf("index"),display:settings["hide-index"]==="yes"?"none":undefined}} id="index" className="border-t border-sky-100/15 pt-9">
