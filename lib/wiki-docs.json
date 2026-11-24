@@ -34,5 +34,17 @@
     "title": "index-70",
     "summary": "index-71",
     "body": "doc-api"
+  },
+  {
+    "slug": "gear",
+    "title": "gear-title",
+    "summary": "gear-summary",
+    "body": "doc-gear"
+  },
+  {
+    "slug": "patch-notes",
+    "title": "patch-notes-title",
+    "summary": "patch-notes-summary",
+    "body": "doc-patch-notes"
   }
 ]
