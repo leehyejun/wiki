@@ -11,14 +11,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import {getText} from "@/lib/wiki-content";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const label = await getText();
   return (
     <html lang="ko">
-      <body className="antialiased"><SiteTabs/>{children}</body>
+      <body className="antialiased"><SiteTabs name={label("상단-6")} suffix={label("상단-7")}/>{children}</body>
     </html>
   );
 }

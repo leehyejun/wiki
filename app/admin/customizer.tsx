@@ -6,6 +6,7 @@ import fields from "@/lib/wiki-fields.json";
 import docs from "@/lib/wiki-docs.json";
 const panels=[
  {id:"server",label:"홈 · 서버 소개",keys:["상단-6","상단-7","server-10","server-11","server-12","server-14","server-17","server-18","server-19","footer-81","footer-82"]},
+ {id:"concept",label:"홈 · 활동과 졸업 목표",keys:["ocean-21","ocean-23","ocean-24","ocean-25","ocean-26","ocean-27","ocean-28","ocean-29","ocean-30","orders-39","orders-40"]},
  {id:"people",label:"홈 · 참가 방송인",keys:["people-51","people-52","people-53","people-55","people-56"]},
  ...docs.map(d=>({id:d.slug,label:"위키 · "+fields[d.title as keyof typeof fields].value,keys:[d.title,d.summary,d.body,...(d.slug==="api"?["api-75","api-76","api-77","api-78","api-79","api-80"]:[])]})),
  {id:"region",label:"위키 · 지역 안내",keys:Object.keys(fields).filter(k=>k.startsWith("region-"))}

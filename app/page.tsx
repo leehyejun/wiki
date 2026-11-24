@@ -1,6 +1,5 @@
 import StationCards from "@/components/station-cards";
 import { defaults, readSettings } from "@/lib/wiki-content";
-import Link from "next/link";
 import { getDb } from "@/db";
 import { streamers } from "@/db/schema";
 
@@ -13,14 +12,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen text-white">
-      <header className="border-b border-sky-200/15 bg-[#07152f]/90">
-        <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <Link href="/" className="flex items-center gap-3 font-bold tracking-tight">
-              <img src="/images/sushiro-header-mark.webp" alt="" width="44" height="44" className="size-11 object-contain" />
-              <span className="brand-wordmark">{t("상단-6")}<span className="brand-wiki">{t("상단-7")}</span></span>
-            </Link>
-</div></div></header>
+
 <div id="server"><section data-side={settings.heroSide} className="relative">
         <div className="mx-auto grid w-full max-w-[1720px] grid-cols-1 items-center gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-5 lg:px-12">
           <div className="order-2 max-w-2xl rounded-3xl bg-[#052b68]/55 p-6 shadow-[0_18px_60px_#00163c55] backdrop-blur-[2px] sm:p-9 lg:order-1 lg:bg-[#052b68]/80 lg:p-7">
@@ -39,7 +31,24 @@ export default async function Home() {
           </div>
         </div>
       </section></div>
-<div className="mx-auto max-w-6xl px-5 py-8"><section id="people" className="border-t border-sky-100/15 pt-9">
+<div className="mx-auto grid max-w-6xl gap-8 px-5 py-8">
+        <section aria-labelledby="concept-title" className="ocean-reading">
+          <h2 id="concept-title" className="text-2xl font-black">{t("ocean-21")}</h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[["🌊","exploration",23],["🎣","cooking",25],["⚒️","gear",27],["🍣","cooking",29]].map(([icon,slug,n])=>(
+              <a key={n} href={"/wiki/"+slug} className="rounded-xl border border-sky-200/25 bg-[#0d3454] p-4 hover:border-amber-300">
+                <span aria-hidden="true" className="text-2xl">{icon}</span>
+                <h3 className="mt-2 font-bold text-amber-200">{t("ocean-"+n)}</h3>
+                <p className="mt-1 text-sm leading-6 text-sky-100">{t("ocean-"+(Number(n)+1))}</p>
+              </a>
+            ))}
+          </div>
+          <a href="/wiki/orders" className="mt-4 block rounded-xl border-l-4 border-amber-300 bg-[#123852] px-5 py-4">
+            <strong className="text-amber-200">{t("orders-39")}</strong>
+            <p className="mt-1 text-sm leading-6">{t("orders-40")}</p>
+          </a>
+        </section>
+        <section id="people" className="border-t border-sky-100/15 pt-9">
           <p className="text-sm font-black tracking-[.16em] text-[#4bd4f5]">{t("people-51")}</p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3"><div><h2 className="text-2xl font-black">{t("people-52")}</h2><p className="mt-1 text-sky-100/70">{t("people-53")}</p></div></div>
           {broadcasterRows.length ? <StationCards rows={broadcasterRows} linkLabel={t("people-55")}/> : <p className="mt-6 rounded-xl border border-dashed border-sky-100/30 p-6 text-sky-100/70">{t("people-56")}</p>}

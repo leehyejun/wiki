@@ -148,7 +148,7 @@ body {
 .wide-guide {display:none}
 @media(min-width:768px){.sidebar {align-self:start;position:sticky;top:1.25rem;max-height:90vh;overflow:auto}.sidebar details{display:none}.wide-guide{display:block}}
 .site-switch{background:#071a30;color:#ecf7ff;border-bottom:1px solid #2c4963}
-.site-switch-inner{max-width:80rem;margin:auto;padding:.6rem clamp(.75rem,3vw,2rem);display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.site-switch-inner{max-width:80rem;margin:auto;padding:.6rem clamp(.75rem,3vw,2rem);display:flex;align-items:center;gap:.75rem}
 .site-switch nav,.site-switch form{display:flex;align-items:center;gap:.25rem}
 .site-switch nav a,.site-switch button{padding:.5rem .9rem;font-weight:700;border-radius:2rem;white-space:nowrap}
 .site-switch nav a[aria-current=page]{background:#ffda62;color:#142844}
@@ -162,3 +162,14 @@ body:has(.site-switch)::before{content:"";position:fixed;inset:0;z-index:-1;poin
 .ocean-reading,main:has(#server) section:is(#ocean,#people,#index){background:rgba(6,30,61,.94);border:1px solid rgba(154,221,247,.24);border-radius:1rem;padding:clamp(1rem,3vw,2rem)}
 .ocean-directory{margin-block:clamp(1rem,4vw,3rem);width:min(calc(100% - 2rem),64rem)}
 main:has(.guide-menu.sidebar)>header{background:rgba(7,26,52,.9)}
+
+.site-brand{display:flex;align-items:center;gap:.55rem;min-width:0}
+.site-brand img{flex:none}
+.site-switch nav{margin-inline-start:auto;background:#102b45;border-radius:2rem;padding:.2rem;flex:none}
+@media(max-width:640px){
+  .site-switch-inner{flex-wrap:wrap}
+  .site-switch form{order:3;flex-basis:100%}
+  .site-switch input{flex:1}
+  .site-brand img{width:28px;height:28px}
+  .site-switch nav a{padding:.45rem .7rem}
+}
