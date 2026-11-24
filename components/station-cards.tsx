@@ -11,10 +11,18 @@ export default function StationCards({rows,linkLabel="방송국 열기"}:{rows:{
   const timer=setInterval(()=>{if(!document.hidden)void update()},60000);
   return ()=>{abort.abort();clearInterval(timer);};
  },[rows]);
- return <div className="my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{rows.map(row=>{
+ const sortedRows = [...rows].sort((a, b) => {
+   const priority = (id: string) => {
+     const state = info[id]?.state;
+     return state === "live" ? 0 : state === "offline" ? 1 : 2;
+   };
+   return priority(a.id) - priority(b.id) || a.name.localeCompare(b.name, "ko") || a.id.localeCompare(b.id);
+ });
+ return <div className="my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{sortedRows.map(row=>{
   const item=info[row.id];
   return <a key={row.id} href={row.stationUrl} target="_blank" rel="noopener noreferrer" className="overflow-hidden rounded-xl border border-sky-200/25 bg-[#102a50] text-white hover:border-amber-300">
    {item?.preview&&<img key={item.preview} src={item.preview} alt={row.name+" 라이브 미리보기"} className="aspect-video w-full object-cover" onError={e=>{e.currentTarget.hidden=true}}/>}
    <div className="p-3"><div className="flex items-center gap-3">{item?.profile?<img alt="" src={item.profile} className="size-10 rounded-full ring-2 ring-sky-400"/>:<span className="grid size-10 place-items-center rounded-full bg-sky-900">{row.name.slice(0,1)}</span>}<div><strong>{row.name}</strong><p className={item?.state==="live"?"text-sm text-rose-300":"text-sm text-sky-200"}>{!item?"상태 확인 중":item.state==="live"?"● LIVE":item.state==="offline"?"오프라인":"상태 확인 불가"}</p></div></div>{item?.title&&<p className="mt-3 text-sm">{item.title}</p>}<span className="mt-3 inline-block text-sm text-amber-300">{linkLabel} ↗</span></div></a>;
  })}</div>;
 }
+
