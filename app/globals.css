@@ -179,3 +179,17 @@ main:has(.guide-menu.sidebar)>header{background:rgba(7,26,52,.9)}
   .promo-sequence{grid-auto-columns:clamp(220px,72vw,360px);overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:.4rem}
   .promo-sequence li{scroll-snap-align:center}
 }
+
+/* Trace each original frame so its surrounding poster pixels stay hidden. */
+.promo-sequence li:nth-child(1) img {
+  clip-path: polygon(0.44% 9.62%, 6.22% 0.38%, 14.00% 0.38%, 16.00% 1.92%, 93.33% 2.31%, 96.67% 6.92%, 99.33% 11.92%, 99.33% 93.46%, 95.56% 99.23%, 4.44% 99.23%, 0.44% 93.85%);
+}
+.promo-sequence li:nth-child(2) img {
+  clip-path: polygon(1.11% 9.62%, 6.67% 1.54%, 15.11% 1.54%, 17.11% 2.31%, 94.44% 3.08%, 99.33% 10.77%, 99.33% 94.23%, 96.00% 99.62%, 4.44% 99.62%, 1.11% 93.85%);
+}
+.promo-sequence li:nth-child(3) img {
+  clip-path: polygon(0.44% 7.14%, 4.44% 0.42%, 95.56% 0.42%, 99.33% 7.14%, 99.33% 89.08%, 94.89% 98.32%, 4.22% 98.32%, 0.44% 89.92%);
+}
+.promo-sequence li:nth-child(4) img {
+  clip-path: polygon(0.89% 7.98%, 4.89% 0.42%, 95.11% 0.42%, 99.33% 7.56%, 99.33% 89.50%, 95.11% 98.32%, 4.67% 98.32%, 0.89% 89.50%);
+}
