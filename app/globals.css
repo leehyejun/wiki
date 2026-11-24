@@ -156,3 +156,9 @@ body {
 .site-switch input{width:clamp(6rem,30vw,18rem);min-width:0;color:white;background:transparent}
 .site-switch button{color:#a6e5ff}
 .guide-groups h2{font-size:.95rem}.guide-groups a{font-size:1.1rem;line-height:1.45;min-height:46px;padding:.65rem .85rem}
+/* One continuous sea behind public pages, with calmer surfaces for reading. */
+body:has(.site-switch){isolation:isolate;background-color:#082447;min-height:100vh}
+body:has(.site-switch)::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(3,24,54,.36),rgba(4,25,52,.55)),url("/images/sushiro-underwater-bg.webp") center center/cover no-repeat}
+.ocean-reading,main:has(#server) section:is(#ocean,#people,#index){background:rgba(6,30,61,.94);border:1px solid rgba(154,221,247,.24);border-radius:1rem;padding:clamp(1rem,3vw,2rem)}
+.ocean-directory{margin-block:clamp(1rem,4vw,3rem);width:min(calc(100% - 2rem),64rem)}
+main:has(.guide-menu.sidebar)>header{background:rgba(7,26,52,.9)}

@@ -28,7 +28,7 @@ export default async function Home() {
   const broadcasterRows = await getDb().select().from(streamers);
 
   return (
-    <main className="min-h-screen bg-[#071a3b] text-white">
+    <main className="min-h-screen text-white">
       <header className="border-b border-sky-200/15 bg-[#07152f]/90">
         <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">

@@ -18,6 +18,6 @@ export default async function WikiIndex({searchParams}:{searchParams:Promise<{q?
   ...readRecipes(settings.recipes).map(r=>({title:r.name,summary:r.materials,body:r.method,href:"/wiki/cooking#recipes"})),
  ];
  const matches=entries.filter(e=>terms.every(term=>normalize([e.title,e.summary,e.body].join(" ")).includes(term)));
- return <main className="mx-auto min-h-screen max-w-5xl px-5 py-10 text-white"><h1 className="text-3xl font-black text-amber-300">{query?"검색 결과":"위키 문서"}</h1>{query&&<p className="my-4 text-sky-200">‘{query}’ · {matches.length}건　<a href="/wiki" className="underline">전체 문서</a></p>}
+ return <main className="ocean-reading ocean-directory mx-auto max-w-5xl text-white"><h1 className="text-3xl font-black text-amber-300">{query?"검색 결과":"위키 문서"}</h1>{query&&<p className="my-4 text-sky-200">‘{query}’ · {matches.length}건　<a href="/wiki" className="underline">전체 문서</a></p>}
  {matches.length?<div className="mt-6 grid gap-3 sm:grid-cols-2">{matches.map((e,i)=><a key={e.href+i} href={e.href} className="rounded-xl border border-sky-200/20 bg-[#102a50] p-5 hover:border-sky-300"><strong className="text-lg text-amber-200">{e.title}</strong><p className="mt-1 text-sky-100">{e.summary}</p></a>)}</div>:<p className="mt-6">일치하는 문서가 없습니다. 다른 단어로 검색해 보세요.</p>}</main>;
 }
