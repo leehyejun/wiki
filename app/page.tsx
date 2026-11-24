@@ -21,8 +21,8 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3 font-bold tracking-tight">
-              <span className="grid size-11 place-items-center rounded-xl border-2 border-[#a85827] bg-[#ffc72c] text-2xl text-[#24354e] shadow-[inset_0_-4px_0_#e59c20]">🍣</span>
-              <span className="text-lg">스시로 서버 <span className="font-normal text-sky-100/75">위키</span></span>
+              <span className="grid size-11 place-items-center rounded-xl border-2 border-[#a85827] bg-[#ffc72c] shadow-[inset_0_-4px_0_#e59c20]" aria-hidden="true"><svg viewBox="0 0 48 48" className="size-8" role="img"><path d="M7 23c1-5 7-8 17-8s16 3 17 8v12c0 4-7 7-17 7S7 39 7 35V23Z" fill="#fff8e8" stroke="#9c5a34" strokeWidth="2.5"/><path d="M9 20c2-6 8-10 15-10s13 4 15 10c-3 3-9 5-15 5s-12-2-15-5Z" fill="#fa806b" stroke="#9c442f" strokeWidth="2.5"/><path d="M15 17c2-2 5-3 9-3" fill="none" stroke="#ffb3a4" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <span className="text-lg">스시로 서버 <span className="font-normal text-sky-100/75">Wiki</span></span>
             </Link>
             <div className="flex items-center gap-3">
               <a href="#index" className="rounded-lg border border-sky-100/40 px-4 py-2 text-sm">문서 찾아보기</a>
@@ -37,7 +37,10 @@ export default async function Home() {
 
       <section id="server" className="relative overflow-hidden border-b border-sky-200/20 bg-[radial-gradient(ellipse_at_75%_5%,#34c9f4_0%,#087bc8_34%,#0752ad_64%,#092b70_100%)]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_12%_22%,white_0_2px,transparent_3px),radial-gradient(circle_at_75%_42%,#a5f5ff_0_3px,transparent_4px),radial-gradient(circle_at_38%_70%,white_0_2px,transparent_4px)] [background-size:170px_130px,230px_190px,190px_160px]" />
-        <div className="relative mx-auto grid max-w-6xl gap-9 px-5 py-10 sm:px-8 sm:py-14 md:grid-cols-[1fr_.75fr] md:items-center">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-7 px-5 py-8 sm:px-8 sm:py-10">
+          <figure className="w-full overflow-hidden rounded-2xl border-[5px] border-[#a85827] bg-[#073d69] shadow-[0_22px_70px_#001339aa,inset_0_0_0_2px_#f3ba67] sm:border-[7px]">
+            <img src="/images/sushiro-four-scenes-banner.webp" alt="스시로 서버의 초밥 요리 모험: 서버 로고, 네 가지 바다와 요리 안내, 그리고 모집 슬로건" className="block h-auto w-full" />
+          </figure>
           <div>
             <p className="inline-flex rounded-full border border-white/30 bg-[#052e72]/55 px-4 py-2 text-sm font-extrabold tracking-[.14em] text-[#ffdf50]">스시로 서버 · 초밥 요리 모험</p>
             <h1 className="mt-6 text-4xl font-black leading-[1.12] tracking-tight drop-shadow-[0_4px_0_#073976] sm:text-6xl">바다를 누비고<br/><span className="text-[#ffdb38]">초밥을 완성하다</span></h1>
@@ -50,10 +53,7 @@ export default async function Home() {
               {[["바다", "#95f5ff"], ["19종 물고기", "#ffdf50"], ["초밥 요리", "#ffb59c"]].map(([label, color]) => <span key={label} className="rounded-full border border-white/20 bg-[#052d70]/55 px-4 py-2" style={{color}}>{label}</span>)}
             </div>
           </div>
-          <figure className="mx-auto w-full max-w-[390px] rotate-[1deg] rounded-[1.4rem] border-[9px] border-[#7a3d22] bg-[#47291f] p-2 shadow-[0_22px_70px_#001339aa,inset_0_0_0_2px_#f3ba67] sm:p-3">
-            <img src="/images/sushiro-recruitment-poster.webp" alt="스시로 서버 모집 포스터: 바다 낚시와 초밥 요리, 시청자 주문 미션 안내" className="block h-auto w-full rounded-lg" />
-            <figcaption className="px-2 pb-1 pt-3 text-center text-sm font-bold text-[#ffe3a6]">서버 모집 포스터</figcaption>
-          </figure>
+
         </div>
       </section>
 
@@ -100,7 +100,7 @@ export default async function Home() {
           <div className="mt-5 grid gap-3 sm:grid-cols-3">{[["보상 항목", "운영진 입력 대기"], ["지급 조건", "운영진 입력 대기"], ["연동 방법", "운영진 입력 대기"]].map(([title,body]) => <div key={title} className="rounded-lg border border-[#c28b47]/40 bg-black/15 p-4"><p className="font-bold text-[#ffe084]">{title}</p><p className="mt-2 text-sm text-white/65">{body}</p></div>)}</div>
         </section>
       </div>
-      <footer className="border-t border-sky-100/15 bg-[#06152f]"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-sm text-sky-100/65 sm:px-8"><span>스시로 서버 위키</span><a href={posterUrl} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-[#ffdc48]">서버 모집 공지 · SOOP</a></div></footer>
+      <footer className="border-t border-sky-100/15 bg-[#06152f]"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-sm text-sky-100/65 sm:px-8"><span>스시로 서버 Wiki</span><a href={posterUrl} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-[#ffdc48]">서버 모집 공지 · SOOP</a></div></footer>
     </main>
   );
 }
