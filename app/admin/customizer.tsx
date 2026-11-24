@@ -1,22 +1,31 @@
 "use client";
-import Countdowns from "@/components/countdowns";
-import {periodDefaults} from "@/lib/periods";
+
+
 import { useState } from "react";
 import fields from "@/lib/wiki-fields.json";
-const names:Record<string,string>={server:"메인 소개",ocean:"바다와 요리",orders:"주문 콘텐츠",people:"참가 방송인",index:"위키 문서",api:"API 안내",footer:"하단"};
-const sections=Object.keys(names).filter(key=>!["server","footer"].includes(key));
+import docs from "@/lib/wiki-docs.json";
+const panels=[
+ {id:"server",label:"홈 · 서버 소개",keys:["상단-6","상단-7","server-10","server-11","server-12","server-14","server-17","server-18","server-19","footer-81","footer-82"]},
+ {id:"people",label:"홈 · 참가 방송인",keys:["people-51","people-52","people-53","people-55","people-56"]},
+ ...docs.map(d=>({id:d.slug,label:"위키 · "+fields[d.title as keyof typeof fields].value,keys:[d.title,d.summary,d.body,...(d.slug==="api"?["api-75","api-76","api-77","api-78","api-79","api-80"]:[])]})),
+ {id:"region",label:"위키 · 지역 안내",keys:Object.keys(fields).filter(k=>k.startsWith("region-"))}
+];
 export default function Customizer({initial}:{initial:Record<string,string>}) {
- const groups=Array.from(new Set(Object.values(fields).map(f=>f.group)));
+
  const [panel,setPanel]=useState("server");
  const [changes,setChanges]=useState<Record<string,string>>({});
  const [message,status]=useState("");
  const [busy,setBusy]=useState(false);
  const value=(key:string,fallback:string)=>changes[key]??initial[key]??fallback;
  const edit=(key:string,v:string)=>{setChanges(prev=>({...prev,[key]:v}));status("");};
- const order=value("order",sections.join(",")).split(",").filter(key=>sections.includes(key));
- function move(i:number,delta:number){const next=[...order];[next[i],next[i+delta]]=[next[i+delta],next[i]];edit("order",next.join(","));}
- async function save(){setBusy(true);try{const response=await fetch("/api/customize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.keys(changes).some(k=>k in periodDefaults)?{...changes,...Object.fromEntries(Object.entries(periodDefaults).map(([k,v])=>[k,value(k,v)]))}:changes)});status(response.ok?"공개 사이트에 저장했습니다.":"저장하지 못했습니다. 권한과 빈 입력란을 확인하세요.");}catch{status("연결을 확인한 뒤 다시 저장하세요.");}finally{setBusy(false);}}
- return <section className="mt-10 space-y-4"><h2 className="text-2xl font-bold">커스텀 모드</h2><label className="block">편집 영역 <select className="rounded bg-slate-800 p-2" value={panel} onChange={e=>setPanel(e.target.value)}><option value="dates">카운트다운 일정</option><option value="layout">홈 배치</option>{groups.map(g=><option key={g} value={g}>{names[g]??g}</option>)}</select></label><div className="grid items-start gap-4 lg:grid-cols-2"><fieldset disabled={busy} className="space-y-3">{panel==="dates"&&<details open className="rounded bg-slate-800 p-4"><summary>헤더 카운트다운 일정 · 한국 시간</summary><p className="my-3 text-sm">종료 시각에 카운트다운이 종료됩니다. 24일 하루 전체를 포함하려면 25일 00:00으로 입력하세요.</p>{Object.entries(periodDefaults).map(([key,v],i)=><label key={key} className="my-2 block">{["모집 시작","모집 마감","서버 시작","서버 종료"][i]} <input type="datetime-local" className="bg-slate-950 p-2" value={value(key,v)} onChange={e=>edit(key,e.target.value)}/></label>)}</details>}{panel==="layout"&&<details open className="rounded bg-slate-800 p-4"><summary>화면 배치</summary><label className="my-4 block">메인 이미지 위치 <select className="bg-slate-950 p-2" value={value("heroSide","right")} onChange={e=>edit("heroSide",e.target.value)}><option value="left">왼쪽</option><option value="right">오른쪽</option></select></label>{order.map((key,i)=><div key={key} className="flex items-center gap-4 py-2"><label className="grow"><input type="checkbox" checked={value("hide-"+key,"no")!=="yes"} onChange={e=>edit("hide-"+key,e.target.checked?"no":"yes")}/> {names[key]}</label><button disabled={!i} onClick={()=>move(i,-1)}>위로</button><button disabled={i===order.length-1} onClick={()=>move(i,1)}>아래로</button></div>)}</details>}
- {groups.filter(g=>g===panel).map(group=><details open key={group} className="rounded bg-slate-800 p-4"><summary>{names[group]??group} 문구</summary>{Object.entries(fields).filter(([,f])=>f.group===group).map(([key,f])=><label key={key} className="my-4 block text-sm text-sky-100">{f.label}<textarea className="mt-1 block w-full rounded bg-slate-950 p-3 text-white" rows={key.startsWith("doc-")?7:2} value={value(key,f.value)} maxLength={16000} onChange={e=>edit(key,e.target.value)}/></label>)}</details>)}
- <button disabled={!Object.keys(changes).length} onClick={save} className="rounded bg-amber-400 px-5 py-3 font-bold text-black">공개 사이트에 저장</button></fieldset><aside className="sticky top-3 min-w-0 rounded-xl border border-sky-200/20 bg-[#0c2853] p-5"><h3 className="mb-4 text-sm font-bold text-sky-200">저장 전 미리보기</h3>{panel==="dates"?<Countdowns periods={[{label:"모집 기간",start:value("recruitStart",periodDefaults.recruitStart),end:value("recruitEnd",periodDefaults.recruitEnd)},{label:"서버 운영",start:value("serverStart",periodDefaults.serverStart),end:value("serverEnd",periodDefaults.serverEnd)}]}/>:panel==="layout"?<><div className={"mb-3 flex items-center justify-between gap-3 "+(value("heroSide","right")==="left"?"flex-row-reverse":"")}><strong>메인 소개</strong><img src="/images/sushiro-promo-final.webp" className="w-1/2" alt="메인 이미지"/></div>{order.filter(k=>value("hide-"+k,"no")!=="yes").map(k=><div key={k} className="mt-2 rounded bg-slate-800 p-2">{names[k]}</div>)}</>:<div className="space-y-3">{Object.entries(fields).filter(([,f])=>f.group===panel).map(([k,f],i)=><p key={k} className={i===0?"text-xl font-black text-amber-200":"whitespace-pre-wrap break-words text-sky-100"}>{value(k,f.value)}</p>)}</div>}</aside></div><p role="status">{message}</p></section>;
+ const keys=panels.find(p=>p.id===panel)!.keys as (keyof typeof fields)[];
+ async function save(){setBusy(true);try{const response=await fetch("/api/customize",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(changes)});status(response.ok?"공개 사이트에 저장했습니다.":"저장하지 못했습니다. 권한과 빈 입력란을 확인하세요.");}catch{status("연결을 확인한 뒤 다시 저장하세요.");}finally{setBusy(false);}}
+ return <section className="my-8 space-y-4">
+ <h2 className="text-2xl font-bold">홈과 위키 편집</h2>
+ <label>편집 영역 <select className="rounded bg-slate-800 p-2" value={panel} onChange={e=>setPanel(e.target.value)}>{panels.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>
+ <div className="grid items-start gap-5 lg:grid-cols-2"><fieldset disabled={busy} className="space-y-4 rounded-xl bg-slate-800 p-5">
+ {panel==="server"&&<label>소개 이미지 위치 <select className="bg-slate-950 p-2" value={value("heroSide","right")} onChange={e=>edit("heroSide",e.target.value)}><option value="left">왼쪽</option><option value="right">오른쪽</option></select></label>}
+ {keys.map(k=><label key={k} className="block text-sm">{fields[k].label}<textarea className="mt-1 block w-full rounded bg-slate-950 p-3" rows={k.startsWith("doc-")?6:2} value={value(k,fields[k].value)} onChange={e=>edit(k,e.target.value)} maxLength={16000}/></label>)}
+ <button disabled={!Object.keys(changes).length} onClick={save} className="rounded bg-amber-400 p-3 font-bold text-black">공개 사이트에 저장</button></fieldset>
+ <aside className="rounded-xl bg-[#0c2853] p-5 lg:sticky lg:top-4"><h3 className="mb-4 text-sm text-sky-200">저장 전 미리보기</h3><div className={"flex items-start gap-3 "+(value("heroSide","right")==="left"?"flex-row-reverse":"")}><div className="min-w-0 flex-1">{keys.map(k=><p className="mb-2 whitespace-pre-wrap break-words" key={k}>{value(k,fields[k].value)}</p>)}</div>{panel==="server"&&<img className="w-1/2" src="/images/sushiro-promo-final.webp" alt="서버 소개"/>}</div></aside></div><p role="status">{message}</p></section>;
 }

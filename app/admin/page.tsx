@@ -16,5 +16,5 @@ export default async function AdminPage({searchParams}:{searchParams:Promise<{er
   }
   const settings=await readSettings();
   const rows = await getDb().select().from(streamers);
-  return <main className="mx-auto min-h-screen max-w-6xl p-6 text-white"><h1 className="text-3xl font-bold">사이트 관리</h1><p className="my-2 text-zinc-300">로그인 계정 {adminName}</p><form method="post" action="/api/admin/session"><button className="my-2 underline" name="action" value="logout">로그아웃</button></form><a href="/" className="text-sky-200">공개 사이트 열기</a><h2 className="mt-8 text-2xl font-bold">참가 방송인 등록</h2><AdminEditor initialRows={rows}/><RecipeEditor initial={settings.recipes}/><Customizer initial={settings}/><TabEditor initial={settings.extraTabs}/></main>;
+  return <main className="mx-auto min-h-screen max-w-6xl p-6 text-white"><h1 className="text-3xl font-bold">사이트 관리</h1><p className="my-2 text-zinc-300">로그인 계정 {adminName}</p><form method="post" action="/api/admin/session"><button className="my-2 underline" name="action" value="logout">로그아웃</button></form><a href="/" className="text-sky-200">공개 사이트 열기</a><Customizer initial={settings}/><h2 className="mt-8 text-2xl font-bold">참가 방송인 등록</h2><AdminEditor initialRows={rows}/><RecipeEditor initial={settings.recipes}/><TabEditor initial={settings.extraTabs}/></main>;
 }
