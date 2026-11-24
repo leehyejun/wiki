@@ -1,3 +1,4 @@
+import {readRecipes} from "@/lib/recipes";
 import {periodDefaults,validPeriodDate} from "@/lib/periods";
 import {parseTabs} from "@/lib/extra-tabs";
 import {isAdmin} from "@/lib/admin-session";
@@ -9,6 +10,7 @@ export async function POST(request:Request) {
   const entries=Object.entries(input);
   function valid(key:string,value:unknown): value is string {
     if(typeof value!=="string") return false;
+    if(key==="recipes"){try{readRecipes(value);return true;}catch{return false;}}
     if(key==="extraTabs"){try{parseTabs(value);return true;}catch{return false;}}
     if(Object.hasOwn(periodDefaults,key))return validPeriodDate(value);
     if(key==="order") return value.split(",").sort().join(",")===[...sections].sort().join(",");
