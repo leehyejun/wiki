@@ -35,25 +35,33 @@ export default async function Home() {
         </div>
       </header>
 
-      <section id="server" className="relative overflow-hidden border-b border-sky-200/20 bg-[radial-gradient(ellipse_at_75%_5%,#34c9f4_0%,#087bc8_34%,#0752ad_64%,#092b70_100%)]">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_12%_22%,white_0_2px,transparent_3px),radial-gradient(circle_at_75%_42%,#a5f5ff_0_3px,transparent_4px),radial-gradient(circle_at_38%_70%,white_0_2px,transparent_4px)] [background-size:170px_130px,230px_190px,190px_160px]" />
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-7 px-5 py-8 sm:px-8 sm:py-10">
-          <figure className="w-full overflow-hidden rounded-2xl border-[5px] border-[#a85827] bg-[#073d69] shadow-[0_22px_70px_#001339aa,inset_0_0_0_2px_#f3ba67] sm:border-[7px]">
-            <img src="/images/sushiro-four-scenes-banner.webp" alt="스시로 서버의 초밥 요리 모험: 서버 로고, 네 가지 바다와 요리 안내, 그리고 모집 슬로건" className="block h-auto w-full" />
-          </figure>
-          <div>
-            <p className="inline-flex rounded-full border border-white/30 bg-[#052e72]/55 px-4 py-2 text-sm font-extrabold tracking-[.14em] text-[#ffdf50]">스시로 서버 · 초밥 요리 모험</p>
-            <h1 className="mt-6 text-4xl font-black leading-[1.12] tracking-tight drop-shadow-[0_4px_0_#073976] sm:text-6xl">바다를 누비고<br/><span className="text-[#ffdb38]">초밥을 완성하다</span></h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/90">작살로 물고기를 잡고, 깊은 바다의 재료로 초밥을 만드세요. 손님들의 주문을 채우며 스시로 서버의 세계를 탐험합니다.</p>
+      <section id="server" className="relative isolate overflow-hidden bg-[#053c85] bg-cover bg-center" style={{ backgroundImage: "url('/images/sushiro-underwater-bg.webp')" }}>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,27,74,.82)_0%,rgba(3,35,87,.6)_44%,rgba(1,48,112,.22)_100%)]" />
+        <div className="mx-auto grid min-h-[720px] w-full max-w-[1720px] grid-cols-1 items-center gap-8 px-5 py-8 sm:px-8 lg:min-h-[780px] lg:grid-cols-[.8fr_1.2fr] lg:gap-5 lg:px-12">
+          <div className="order-2 max-w-2xl rounded-3xl bg-[#052b68]/55 p-6 shadow-[0_18px_60px_#00163c55] backdrop-blur-[2px] sm:p-9 lg:order-1 lg:bg-transparent lg:p-0 lg:shadow-none">
+            <p className="inline-flex rounded-full border border-white/35 bg-[#052e72]/75 px-4 py-2 text-sm font-extrabold tracking-[.14em] text-[#ffdf50] shadow-lg">스시로 서버 · 초밥 요리 모험</p>
+            <h1 className="mt-5 text-4xl font-black leading-[1.12] tracking-tight drop-shadow-[0_4px_0_#073976] sm:text-5xl xl:text-6xl">바다를 누비고<br/><span className="text-[#ffdb38]">초밥을 완성하다</span></h1>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white drop-shadow-md">작살로 물고기를 잡고, 깊은 바다의 재료로 초밥을 만드세요. 손님들의 주문을 채우며 스시로 서버의 세계를 탐험합니다.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#ocean" className="rounded-xl border-2 border-[#a85827] bg-[#ffd333] px-5 py-3 font-extrabold text-[#182a44] shadow-[inset_0_-4px_0_#e19a1b]">서버 살펴보기</a>
-              <a href={posterUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border-2 border-white/45 bg-[#082f70]/50 px-5 py-3 font-bold text-white hover:bg-[#082f70]/80">SOOP 모집 공지</a>
+              <a href="#ocean" className="rounded-xl border-2 border-[#a85827] bg-[#ffd333] px-5 py-3 font-extrabold text-[#182a44] shadow-[inset_0_-4px_0_#e19a1b] transition hover:-translate-y-0.5">서버 살펴보기</a>
+              <a href={posterUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border-2 border-white/60 bg-[#082f70]/70 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-[#082f70]">SOOP 모집 공지</a>
             </div>
-            <div className="mt-8 flex flex-wrap gap-2 text-sm font-bold">
-              {[["바다", "#95f5ff"], ["19종 물고기", "#ffdf50"], ["초밥 요리", "#ffb59c"]].map(([label, color]) => <span key={label} className="rounded-full border border-white/20 bg-[#052d70]/55 px-4 py-2" style={{color}}>{label}</span>)}
+            <div className="mt-7 flex flex-wrap gap-2 text-sm font-bold">
+              {[['바다', '#95f5ff'], ['19종 물고기', '#ffdf50'], ['초밥 요리', '#ffb59c']].map(([label, color]) => <span key={label} className="rounded-full border border-white/35 bg-[#052d70]/75 px-4 py-2 shadow-md" style={{color}}>{label}</span>)}
             </div>
           </div>
-
+          <div className="order-1 mx-auto flex w-full max-w-[940px] flex-col items-center gap-2 lg:order-2 lg:max-w-none lg:gap-3">
+            <img src="/images/sushiro-promo-logo.webp" alt="스시로 서버 · 초밥 요리 서버" className="w-[58%] max-w-[500px] drop-shadow-[0_12px_24px_#001b4d99]" />
+            <div className="grid w-full grid-cols-2 gap-2 sm:gap-3">
+              {[1,2,3,4].map((scene) => <img key={scene} src={'/images/sushiro-promo-scene-' + scene + '.webp'} alt={[
+                '직접 작살로 바다에서 생선을 잡아 초밥을 요리',
+                '강화로 더 깊은 바다에 가서 고급 초밥 제작',
+                '아쿠아리움에 갇히면 작살로 물고기를 잡아 탈출',
+                '시청자 주문을 모두 제출하고 졸업',
+              ][scene-1]} className="h-auto w-full drop-shadow-[0_8px_18px_#001b4d99]" />)}
+            </div>
+            <img src="/images/sushiro-promo-slogan.webp" alt="지금 바로 스시로 서버의 세계로 뛰어드세요" className="mt-1 w-[72%] max-w-[620px] drop-shadow-[0_10px_24px_#001b4d99]" />
+          </div>
         </div>
       </section>
 
