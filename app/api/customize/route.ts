@@ -1,8 +1,7 @@
-import {getChatGPTUser} from "@/app/chatgpt-auth";
+import {isAdmin} from "@/lib/admin-session";
 import {defaults,sections,writeSettings} from "@/lib/wiki-content";
 export async function POST(request:Request) {
-  const user = await getChatGPTUser();
-  if (!user || user.email.toLowerCase() !== process.env.ADMIN_EMAIL?.toLowerCase()) return new Response(null,{status:403});
+  if (!await isAdmin()) return new Response(null,{status:403});
   const input = await request.json().catch(()=>null);
   if (!input || typeof input!=="object" || Array.isArray(input)) return new Response(null,{status:400});
   const entries=Object.entries(input);

@@ -1,7 +1,7 @@
 import { and, asc, eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import { streamers } from "@/db/schema";
-import { getChatGPTUser } from "@/app/chatgpt-auth";
+import {isAdmin} from "@/lib/admin-session";
 
 export async function GET() {
   const rows = await getDb().select().from(streamers).orderBy(asc(streamers.name));
@@ -9,9 +9,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const user = await getChatGPTUser();
-  const adminEmail = process.env.ADMIN_EMAIL?.toLowerCase();
-  if (!user || !adminEmail || user.email.toLowerCase() !== adminEmail) {
+  if (!await isAdmin()) {
     return Response.json({ error: "관리자 권한이 필요합니다." }, { status: 403 });
   }
 
@@ -35,9 +33,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const user = await getChatGPTUser();
-  const adminEmail = process.env.ADMIN_EMAIL?.toLowerCase();
-  if (!user || !adminEmail || user.email.toLowerCase() !== adminEmail) {
+  if (!await isAdmin()) {
     return Response.json({ error: "관리자 권한이 필요합니다." }, { status: 403 });
   }
   const id = new URL(request.url).searchParams.get("id");
