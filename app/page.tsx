@@ -1,3 +1,5 @@
+import Countdowns from "@/components/countdowns";
+import {periodDefaults} from "@/lib/periods";
 import {parseTabs} from "@/lib/extra-tabs";
 import StationCards from "@/components/station-cards";
 import { defaults, readSettings, sections } from "@/lib/wiki-content";
@@ -19,6 +21,7 @@ export default async function Home() {
   const settings = await readSettings();
   const t = (key:string) => settings[key] ?? defaults[key];
   const tabs=parseTabs(settings.extraTabs);
+  const dates={...periodDefaults,...settings};
   const order = settings.order?.split(",") ?? sections;
   const broadcasterRows = await getDb().select().from(streamers);
 
@@ -31,6 +34,7 @@ export default async function Home() {
               <img src="/images/sushiro-header-mark.webp" alt="" width="44" height="44" className="size-11 object-contain" />
               <span className="brand-wordmark">{t("상단-6")}<span className="brand-wiki">{t("상단-7")}</span></span>
             </Link>
+            <Countdowns periods={[{label:"모집 기간",start:dates.recruitStart,end:dates.recruitEnd},{label:"서버 운영",start:dates.serverStart,end:dates.serverEnd}]}/>
             <div className="flex items-center gap-3">
               <a href={settings["hide-index"]==="yes"?"/wiki/exploration":"#index"} className="rounded-lg border border-sky-100/40 px-4 py-2 text-sm">{t("상단-8")}</a>
               <Link href="/admin" className="rounded-lg border border-[#a85827] bg-[#ffc72c] px-4 py-2 text-sm font-bold text-[#1e2e44] shadow-[inset_0_-3px_0_#e59c20]">{t("상단-9")}</Link>
