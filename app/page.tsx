@@ -14,13 +14,13 @@ export default async function Home() {
     <main className="min-h-screen text-white">
 
       <section id="server" className="mx-auto grid max-w-[1640px] justify-items-center gap-4 py-6 sm:gap-6 sm:py-8">
-        <h1><img className="w-[min(64vw,400px)]" src="/images/sushiro-promo-logo-cutout.webp" alt="스시로 서버 · 초밥 요리 서버"/></h1>
+        <h1><svg className="w-[min(64vw,400px)]" viewBox="330 14 670 222" role="img" aria-label="스시로 서버 · 초밥 요리 서버"><image href="/images/sushiro-promo-final.webp" width="1355" height="1160"/></svg></h1>
         <ol aria-label="서버 콘텐츠" className="promo-sequence">
           {["작살로 생선을 잡아 초밥 요리", "장비를 강화해 더 깊은 바다에서 고급 초밥 제작", "아쿠아리움에서 물고기를 잡아 탈출", "시청자 주문을 모두 제출하면 졸업"].map((caption,index)=>(
-            <li key={caption}><img className="block w-full" src={`/images/sushiro-promo-scene${index+1}-cutout.webp`} alt={caption}/></li>
+            <li key={caption}><img className="block w-full rounded-[5%]" src={`/images/sushiro-promo-scene-${index+1}.webp`} alt={caption}/></li>
           ))}
         </ol>
-        <img className="w-[min(70vw,450px)]" src="/images/sushiro-promo-slogan-cutout.webp" alt="지금 바로, 스시로 서버의 세계로 뛰어드세요!"/>
+        <svg className="w-[min(70vw,450px)]" viewBox="240 980 860 180" role="img" aria-label="지금 바로, 스시로 서버의 세계로 뛰어드세요!"><image href="/images/sushiro-promo-final.webp" width="1355" height="1160"/></svg>
       </section>
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-8">
         <section aria-labelledby="concept-title" className="ocean-reading">
