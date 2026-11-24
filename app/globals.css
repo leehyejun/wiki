@@ -175,6 +175,3 @@ main:has(.guide-menu.sidebar)>header{background:rgba(7,26,52,.9)}
 }
 
 .promo-sequence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:clamp(.75rem,2vw,1.5rem);width:min(100%,1040px);padding-inline:clamp(.75rem,2vw,1.5rem)}
-.promo-sequence li{overflow:hidden;border-radius:1rem;background:#07315b;isolation:isolate}
-.promo-sequence li img{display:block;width:100%;height:auto}
-.promo-sequence img{clip-path:none!important}
