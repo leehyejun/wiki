@@ -1,15 +1,16 @@
 "use client";
+import {getLiveInfo} from "@/lib/soop-live";
 import {useEffect,useState} from "react";
 type Info={profile:string,state:string,title:string,preview:string};
 export default function StationCards({rows,linkLabel="방송국 열기"}:{rows:{id:string,name:string,stationUrl:string}[],linkLabel?:string}){
  const [info,setInfo]=useState<Record<string,Info>>({});
  useEffect(()=>{
   const abort=new AbortController();
-  async function update(){try{const r=await fetch("/api/live",{signal:abort.signal});if(r.ok)setInfo(await r.json());}catch{/* Next refresh retries. */}}
+  async function update(){try{const r=await fetch("/api/live",{signal:abort.signal});const result:Record<string,Info>=r.ok?await r.json():{};await Promise.all(rows.map(async row=>{if(!result[row.id]||result[row.id].state==="unknown")result[row.id]=await getLiveInfo(row.stationUrl);}));if(!abort.signal.aborted)setInfo(result);}catch{/* Next refresh retries. */}}
   void update();
   const timer=setInterval(()=>{if(!document.hidden)void update()},60000);
   return ()=>{abort.abort();clearInterval(timer);};
- },[]);
+ },[rows]);
  return <div className="my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{rows.map(row=>{
   const item=info[row.id];
   return <a key={row.id} href={row.stationUrl} target="_blank" rel="noopener noreferrer" className="overflow-hidden rounded-xl border border-sky-200/25 bg-[#102a50] text-white hover:border-amber-300">

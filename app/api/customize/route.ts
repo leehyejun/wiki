@@ -1,3 +1,4 @@
+import {parseTabs} from "@/lib/extra-tabs";
 import {isAdmin} from "@/lib/admin-session";
 import {defaults,sections,writeSettings} from "@/lib/wiki-content";
 export async function POST(request:Request) {
@@ -7,6 +8,7 @@ export async function POST(request:Request) {
   const entries=Object.entries(input);
   function valid(key:string,value:unknown): value is string {
     if(typeof value!=="string") return false;
+    if(key==="extraTabs"){try{parseTabs(value);return true;}catch{return false;}}
     if(key==="order") return value.split(",").sort().join(",")===[...sections].sort().join(",");
     if(key==="heroSide") return ["left","right"].includes(value);
     if(key.startsWith("hide-")) return sections.includes(key.slice(5)) && ["yes","no"].includes(value);
