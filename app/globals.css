@@ -135,3 +135,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.brand-wordmark {font-weight:1000;font-size:clamp(1.1rem,2.5vw,1.65rem);color:#ffd342;letter-spacing:-.04em;text-shadow:0 2px #a55719,1px 4px #102342;}
+.brand-wiki {color:#8ddaff;margin-left:.35em;text-shadow:0 2px #27639a,1px 4px #102342;}
+@media(min-width:1024px){#server[data-side="left"] > .grid{grid-template-columns:1.2fr .8fr}#server[data-side="left"] .lg\:order-1{order:2}#server[data-side="left"] .lg\:order-2{order:1}}

@@ -1,0 +1,442 @@
+{
+  "상단-1": {
+    "group": "상단",
+    "label": "서버 소개",
+    "value": "서버 소개"
+  },
+  "상단-2": {
+    "group": "상단",
+    "label": "바다와 요리",
+    "value": "바다와 요리"
+  },
+  "상단-3": {
+    "group": "상단",
+    "label": "주문 콘텐츠",
+    "value": "주문 콘텐츠"
+  },
+  "상단-4": {
+    "group": "상단",
+    "label": "방송인",
+    "value": "방송인"
+  },
+  "상단-5": {
+    "group": "상단",
+    "label": "API 안내",
+    "value": "API 안내"
+  },
+  "상단-6": {
+    "group": "상단",
+    "label": "스시로 서버",
+    "value": "스시로 서버"
+  },
+  "상단-7": {
+    "group": "상단",
+    "label": "Wiki",
+    "value": "Wiki"
+  },
+  "상단-8": {
+    "group": "상단",
+    "label": "문서 찾아보기",
+    "value": "문서 찾아보기"
+  },
+  "상단-9": {
+    "group": "상단",
+    "label": "관리자",
+    "value": "관리자"
+  },
+  "server-10": {
+    "group": "server",
+    "label": "스시로 서버 · 초밥 요리 모험",
+    "value": "스시로 서버 · 초밥 요리 모험"
+  },
+  "server-11": {
+    "group": "server",
+    "label": "바다를 누비고",
+    "value": "바다를 누비고"
+  },
+  "server-12": {
+    "group": "server",
+    "label": "초밥을 완성하다",
+    "value": "초밥을 완성하다"
+  },
+  "server-13": {
+    "group": "server",
+    "label": "바다를 누비고",
+    "value": "바다를 누비고"
+  },
+  "server-14": {
+    "group": "server",
+    "label": "작살로 물고기를 잡고, 깊은 바다의 재료로 초밥을 만드세요. 손님들의 주문을 채우며 스시로 서버의 세계를 탐험합니다.",
+    "value": "작살로 물고기를 잡고, 깊은 바다의 재료로 초밥을 만드세요. 손님들의 주문을 채우며 스시로 서버의 세계를 탐험합니다."
+  },
+  "server-15": {
+    "group": "server",
+    "label": "서버 살펴보기",
+    "value": "서버 살펴보기"
+  },
+  "server-16": {
+    "group": "server",
+    "label": "SOOP 모집 공지",
+    "value": "SOOP 모집 공지"
+  },
+  "server-17": {
+    "group": "server",
+    "label": "바다",
+    "value": "바다"
+  },
+  "server-18": {
+    "group": "server",
+    "label": "19종 물고기",
+    "value": "19종 물고기"
+  },
+  "server-19": {
+    "group": "server",
+    "label": "초밥 요리",
+    "value": "초밥 요리"
+  },
+  "ocean-20": {
+    "group": "ocean",
+    "label": "EXPLORE · CATCH · COOK",
+    "value": "EXPLORE · CATCH · COOK"
+  },
+  "ocean-21": {
+    "group": "ocean",
+    "label": "바다에서 식탁까지",
+    "value": "바다에서 식탁까지"
+  },
+  "ocean-22": {
+    "group": "ocean",
+    "label": "데이브 더 다이버에서 영감을 받은 초밥 요리 서버입니다. 더 깊은 바다로 갈수록 새로운 물고기와 요리에 도전할 수 있습니다.",
+    "value": "데이브 더 다이버에서 영감을 받은 초밥 요리 서버입니다. 더 깊은 바다로 갈수록 새로운 물고기와 요리에 도전할 수 있습니다."
+  },
+  "ocean-23": {
+    "group": "ocean",
+    "label": "바다 탐험",
+    "value": "바다 탐험"
+  },
+  "ocean-24": {
+    "group": "ocean",
+    "label": "단계별 바다에서 새로운 물고기를 만나요.",
+    "value": "단계별 바다에서 새로운 물고기를 만나요."
+  },
+  "ocean-25": {
+    "group": "ocean",
+    "label": "작살 낚시",
+    "value": "작살 낚시"
+  },
+  "ocean-26": {
+    "group": "ocean",
+    "label": "직접 작살을 던져 재료를 모아요.",
+    "value": "직접 작살을 던져 재료를 모아요."
+  },
+  "ocean-27": {
+    "group": "ocean",
+    "label": "장비 강화",
+    "value": "장비 강화"
+  },
+  "ocean-28": {
+    "group": "ocean",
+    "label": "강화한 장비로 더 깊은 바다에 도전해요.",
+    "value": "강화한 장비로 더 깊은 바다에 도전해요."
+  },
+  "ocean-29": {
+    "group": "ocean",
+    "label": "초밥 요리",
+    "value": "초밥 요리"
+  },
+  "ocean-30": {
+    "group": "ocean",
+    "label": "잡은 물고기로 손님에게 초밥을 내요.",
+    "value": "잡은 물고기로 손님에게 초밥을 내요."
+  },
+  "ocean-31": {
+    "group": "ocean",
+    "label": "바다로 나아가는 항구",
+    "value": "바다로 나아가는 항구"
+  },
+  "ocean-32": {
+    "group": "ocean",
+    "label": "서버 소개 게시글에 담긴 항구 풍경",
+    "value": "서버 소개 게시글에 담긴 항구 풍경"
+  },
+  "ocean-33": {
+    "group": "ocean",
+    "label": "모험이 이어지는 마을",
+    "value": "모험이 이어지는 마을"
+  },
+  "ocean-34": {
+    "group": "ocean",
+    "label": "스시로 서버의 또 다른 풍경",
+    "value": "스시로 서버의 또 다른 풍경"
+  },
+  "ocean-35": {
+    "group": "ocean",
+    "label": "서버 특징은",
+    "value": "서버 특징은"
+  },
+  "ocean-36": {
+    "group": "ocean",
+    "label": "서라0의 SOOP 모집 공지",
+    "value": "서라0의 SOOP 모집 공지"
+  },
+  "ocean-37": {
+    "group": "ocean",
+    "label": "를 참고했습니다.",
+    "value": "를 참고했습니다."
+  },
+  "orders-38": {
+    "group": "orders",
+    "label": "VIEWER QUEST",
+    "value": "VIEWER QUEST"
+  },
+  "orders-39": {
+    "group": "orders",
+    "label": "손님들의 주문을 모두 완성하세요",
+    "value": "손님들의 주문을 모두 완성하세요"
+  },
+  "orders-40": {
+    "group": "orders",
+    "label": "시청자 주문을 모두 제출하면 졸업하는 목표가 준비되어 있습니다. 수중 감옥과 바다의 도전도 모집 공지에서 확인할 수 있습니다.",
+    "value": "시청자 주문을 모두 제출하면 졸업하는 목표가 준비되어 있습니다. 수중 감옥과 바다의 도전도 모집 공지에서 확인할 수 있습니다."
+  },
+  "schedule-41": {
+    "group": "schedule",
+    "label": "RECRUITMENT",
+    "value": "RECRUITMENT"
+  },
+  "schedule-42": {
+    "group": "schedule",
+    "label": "모집 공지 일정",
+    "value": "모집 공지 일정"
+  },
+  "schedule-43": {
+    "group": "schedule",
+    "label": "SOOP 원문에서 확인",
+    "value": "SOOP 원문에서 확인"
+  },
+  "schedule-44": {
+    "group": "schedule",
+    "label": "공지 게시 시점의 일정입니다. 변경 내용은 원문 공지를 우선 확인해 주세요.",
+    "value": "공지 게시 시점의 일정입니다. 변경 내용은 원문 공지를 우선 확인해 주세요."
+  },
+  "schedule-45": {
+    "group": "schedule",
+    "label": "모집",
+    "value": "모집"
+  },
+  "schedule-46": {
+    "group": "schedule",
+    "label": "11월 26일 – 1월 4일 22:00",
+    "value": "11월 26일 – 1월 4일 22:00"
+  },
+  "schedule-47": {
+    "group": "schedule",
+    "label": "인원 발표",
+    "value": "인원 발표"
+  },
+  "schedule-48": {
+    "group": "schedule",
+    "label": "1월 5일 18:00",
+    "value": "1월 5일 18:00"
+  },
+  "schedule-49": {
+    "group": "schedule",
+    "label": "서버 기간",
+    "value": "서버 기간"
+  },
+  "schedule-50": {
+    "group": "schedule",
+    "label": "1월 10일 – 24일 · 2주",
+    "value": "1월 10일 – 24일 · 2주"
+  },
+  "people-51": {
+    "group": "people",
+    "label": "STREAMERS",
+    "value": "STREAMERS"
+  },
+  "people-52": {
+    "group": "people",
+    "label": "참가 방송인",
+    "value": "참가 방송인"
+  },
+  "people-53": {
+    "group": "people",
+    "label": "이름을 누르면 등록된 SOOP 방송국으로 이동합니다.",
+    "value": "이름을 누르면 등록된 SOOP 방송국으로 이동합니다."
+  },
+  "people-54": {
+    "group": "people",
+    "label": "방송인 관리",
+    "value": "방송인 관리"
+  },
+  "people-55": {
+    "group": "people",
+    "label": "방송국 열기",
+    "value": "방송국 열기"
+  },
+  "people-56": {
+    "group": "people",
+    "label": "방송인 정보를 등록하면 이곳에 표시됩니다.",
+    "value": "방송인 정보를 등록하면 이곳에 표시됩니다."
+  },
+  "index-57": {
+    "group": "index",
+    "label": "WIKI INDEX",
+    "value": "WIKI INDEX"
+  },
+  "index-58": {
+    "group": "index",
+    "label": "위키 문서",
+    "value": "위키 문서"
+  },
+  "index-59": {
+    "group": "index",
+    "label": "서버 정보가 정리되는 대로 주제별 문서를 추가합니다.",
+    "value": "서버 정보가 정리되는 대로 주제별 문서를 추가합니다."
+  },
+  "index-60": {
+    "group": "index",
+    "label": "서버 탐험",
+    "value": "서버 탐험"
+  },
+  "index-61": {
+    "group": "index",
+    "label": "바다 단계와 지역별 정보",
+    "value": "바다 단계와 지역별 정보"
+  },
+  "index-62": {
+    "group": "index",
+    "label": "낚시와 요리",
+    "value": "낚시와 요리"
+  },
+  "index-63": {
+    "group": "index",
+    "label": "물고기와 초밥 제작 정보",
+    "value": "물고기와 초밥 제작 정보"
+  },
+  "index-64": {
+    "group": "index",
+    "label": "주문 콘텐츠",
+    "value": "주문 콘텐츠"
+  },
+  "index-65": {
+    "group": "index",
+    "label": "시청자 참여와 졸업 목표",
+    "value": "시청자 참여와 졸업 목표"
+  },
+  "index-66": {
+    "group": "index",
+    "label": "모집 일정",
+    "value": "모집 일정"
+  },
+  "index-67": {
+    "group": "index",
+    "label": "참가 신청 공지와 기간",
+    "value": "참가 신청 공지와 기간"
+  },
+  "index-68": {
+    "group": "index",
+    "label": "참가 방송인",
+    "value": "참가 방송인"
+  },
+  "index-69": {
+    "group": "index",
+    "label": "참가자와 SOOP 방송국",
+    "value": "참가자와 SOOP 방송국"
+  },
+  "index-70": {
+    "group": "index",
+    "label": "API 안내",
+    "value": "API 안내"
+  },
+  "index-71": {
+    "group": "index",
+    "label": "방송인 보상과 연동 안내",
+    "value": "방송인 보상과 연동 안내"
+  },
+  "api-72": {
+    "group": "api",
+    "label": "API GUIDE",
+    "value": "API GUIDE"
+  },
+  "api-73": {
+    "group": "api",
+    "label": "방송인 API 안내",
+    "value": "방송인 API 안내"
+  },
+  "api-74": {
+    "group": "api",
+    "label": "방송인 보상, 지급 조건, 연동 방법을 정리할 문서 영역입니다. 운영진이 확정된 기준을 등록하면 이곳에서 확인할 수 있습니다.",
+    "value": "방송인 보상, 지급 조건, 연동 방법을 정리할 문서 영역입니다. 운영진이 확정된 기준을 등록하면 이곳에서 확인할 수 있습니다."
+  },
+  "api-75": {
+    "group": "api",
+    "label": "보상 항목",
+    "value": "보상 항목"
+  },
+  "api-76": {
+    "group": "api",
+    "label": "운영진 입력 대기",
+    "value": "운영진 입력 대기"
+  },
+  "api-77": {
+    "group": "api",
+    "label": "지급 조건",
+    "value": "지급 조건"
+  },
+  "api-78": {
+    "group": "api",
+    "label": "운영진 입력 대기",
+    "value": "운영진 입력 대기"
+  },
+  "api-79": {
+    "group": "api",
+    "label": "연동 방법",
+    "value": "연동 방법"
+  },
+  "api-80": {
+    "group": "api",
+    "label": "운영진 입력 대기",
+    "value": "운영진 입력 대기"
+  },
+  "footer-81": {
+    "group": "footer",
+    "label": "스시로 서버 Wiki",
+    "value": "스시로 서버 Wiki"
+  },
+  "footer-82": {
+    "group": "footer",
+    "label": "서버 모집 공지 · SOOP",
+    "value": "서버 모집 공지 · SOOP"
+  },
+  "doc-exploration": {
+    "group": "문서 본문",
+    "label": "서버 탐험",
+    "value": "단계별 바다에서 물고기를 잡고 새로운 재료를 모읍니다. 장비를 강화하면 더 깊은 바다를 탐험할 수 있습니다."
+  },
+  "doc-cooking": {
+    "group": "문서 본문",
+    "label": "낚시와 요리",
+    "value": "작살로 물고기를 잡아 초밥 재료를 모으세요. 더 깊은 바다에서 얻은 재료로 고급 초밥을 만들 수 있습니다."
+  },
+  "doc-orders": {
+    "group": "문서 본문",
+    "label": "주문 콘텐츠",
+    "value": "시청자들의 주문을 모두 제출하면 졸업합니다. 아쿠아리움에 갇히면 작살로 물고기를 잡아 탈출하세요."
+  },
+  "doc-recruitment": {
+    "group": "문서 본문",
+    "label": "모집 일정",
+    "value": "모집 공지에 실린 일정입니다. 신청 전 SOOP 원문에서 최신 일정을 확인하세요."
+  },
+  "doc-streamers": {
+    "group": "문서 본문",
+    "label": "참가 방송인",
+    "value": "등록된 참가 방송인의 이름을 선택하면 SOOP 방송국이 열립니다."
+  },
+  "doc-api": {
+    "group": "문서 본문",
+    "label": "API 안내",
+    "value": "방송인 보상 항목과 지급 조건, 연동 방법은 운영진이 확정한 뒤 이 문서에 게시합니다."
+  }
+}
