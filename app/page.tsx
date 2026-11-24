@@ -13,25 +13,16 @@ export default async function Home() {
   return (
     <main className="min-h-screen text-white">
 
-<div id="server"><section data-side={settings.heroSide} className="relative">
-        <div className="mx-auto grid w-full max-w-[1720px] grid-cols-1 items-center gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-5 lg:px-12">
-          <div className="order-2 max-w-2xl rounded-3xl bg-[#052b68]/55 p-6 shadow-[0_18px_60px_#00163c55] backdrop-blur-[2px] sm:p-9 lg:order-1 lg:bg-[#052b68]/80 lg:p-7">
-            <p className="inline-flex rounded-full border border-white/35 bg-[#052e72]/75 px-4 py-2 text-sm font-extrabold tracking-[.14em] text-[#ffdf50] shadow-lg">{t("server-10")}</p>
-            <h1 className="mt-5 text-4xl font-black leading-[1.12] tracking-tight drop-shadow-[0_4px_0_#073976] sm:text-5xl xl:text-6xl">{t("server-11")}<br/><span className="text-[#ffdb38]">{t("server-12")}</span></h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white drop-shadow-md">{t("server-14")}</p>
-            
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a className="rounded-xl bg-amber-300 px-5 py-3 font-bold text-slate-950" href="/wiki/rules">{t("rules-title")}</a><a className="rounded-xl border border-white/60 px-5 py-3 font-bold" href="#people">{t("people-52")}</a></div>
-            <div className="mt-7 flex flex-wrap gap-2 text-sm font-bold">
-              {[[t("server-17"), '#95f5ff'], [t("server-18"), '#ffdf50'], [t("server-19"), '#ffb59c']].map(([label, color]) => <span key={label} className="rounded-full border border-white/35 bg-[#052d70]/75 px-4 py-2 shadow-md" style={{color}}>{label}</span>)}
-            </div>
-          </div>
-          <div className="order-1 mx-auto flex w-full max-w-[940px] flex-col items-center gap-2 lg:order-2 lg:max-w-none lg:gap-3">
-            <img fetchPriority="high" src="/images/sushiro-promo-final.webp" alt="스시로 서버 · 초밥 요리 서버. 작살로 물고기를 잡아 요리하고, 강화로 깊은 바다에 도전합니다. 아쿠아리움에서 탈출하고 시청자 주문을 모두 제출하면 졸업합니다." className="block h-auto w-full" />
-          </div>
-        </div>
-      </section></div>
-<div className="mx-auto grid max-w-6xl gap-8 px-5 py-8">
+      <section id="server" className="mx-auto grid max-w-[1640px] justify-items-center gap-4 py-6 sm:gap-6 sm:py-8">
+        <h1><img className="w-[min(64vw,400px)]" src="/images/sushiro-promo-logo-cutout.webp" alt="스시로 서버 · 초밥 요리 서버"/></h1>
+        <ol aria-label="서버 콘텐츠" className="promo-sequence">
+          {["작살로 생선을 잡아 초밥 요리", "장비를 강화해 더 깊은 바다에서 고급 초밥 제작", "아쿠아리움에서 물고기를 잡아 탈출", "시청자 주문을 모두 제출하면 졸업"].map((caption,index)=>(
+            <li key={caption}><img className="block w-full" src={`/images/sushiro-promo-scene${index+1}-cutout.webp`} alt={caption}/></li>
+          ))}
+        </ol>
+        <img className="w-[min(70vw,450px)]" src="/images/sushiro-promo-slogan-cutout.webp" alt="지금 바로, 스시로 서버의 세계로 뛰어드세요!"/>
+      </section>
+      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-8">
         <section aria-labelledby="concept-title" className="ocean-reading">
           <h2 id="concept-title" className="text-2xl font-black">{t("ocean-21")}</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -52,7 +43,9 @@ export default async function Home() {
           <p className="text-sm font-black tracking-[.16em] text-[#4bd4f5]">{t("people-51")}</p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3"><div><h2 className="text-2xl font-black">{t("people-52")}</h2><p className="mt-1 text-sky-100/70">{t("people-53")}</p></div></div>
           {broadcasterRows.length ? <StationCards rows={broadcasterRows} linkLabel={t("people-55")}/> : <p className="mt-6 rounded-xl border border-dashed border-sky-100/30 p-6 text-sky-100/70">{t("people-56")}</p>}
-        </section></div>
+        </section>
+        <section className="ocean-reading"><a href="/wiki/rules" className="block rounded-xl border border-sky-200/25 bg-[#0d3454] p-4 hover:border-amber-300"><h2 className="font-bold text-amber-200">{t("rules-title")} →</h2><p className="mt-1 text-sm leading-6 text-sky-100">{t("rules-summary")}</p></a></section>
+      </div>
       <footer className="border-t border-sky-100/15 bg-[#06152f]"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-sm text-sky-100/65 sm:px-8"><span>{t("footer-81")}</span><a href={posterUrl} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-[#ffdc48]">{t("footer-82")}</a></div></footer>
     </main>
   );
