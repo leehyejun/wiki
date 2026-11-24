@@ -138,3 +138,12 @@ body {
 .brand-wordmark {font-weight:1000;font-size:clamp(1.1rem,2.5vw,1.65rem);color:#ffd342;letter-spacing:-.04em;text-shadow:0 2px #a55719,1px 4px #102342;}
 .brand-wiki {color:#8ddaff;margin-left:.35em;text-shadow:0 2px #27639a,1px 4px #102342;}
 @media(min-width:1024px){#server[data-side="left"] > .grid{grid-template-columns:1.2fr .8fr}#server[data-side="left"] .lg\:order-1{order:2}#server[data-side="left"] .lg\:order-2{order:1}}
+.guide-menu {position:relative;min-width:0}
+.guide-menu summary {cursor:pointer;width:max-content;color:#b8e7ff;font-weight:700;padding:.45rem .8rem;border:1px solid #365978;border-radius:.55rem}
+.guide-groups {background:#0a203f;padding:1rem;border:1px solid #254768;border-radius:.8rem;display:grid;gap:1.2rem}
+.guide-groups h2 {font-size:.8rem;color:#83d8f4;margin-bottom:.3rem;font-weight:750}
+.guide-groups a {display:block;color:#e6effa;padding:.42rem .65rem;border-radius:.4rem;overflow-wrap:anywhere}
+.guide-groups a:hover,.guide-groups a:focus-visible,.guide-groups a[aria-current="page"] {background:#164167;color:#ffdc74}
+.guide-menu.compact details[open] .guide-groups {position:absolute;z-index:30;right:0;top:100%;min-width:min(17rem,84vw);max-height:65vh;overflow:auto;box-shadow:0 12px 28px #03142980}
+.wide-guide {display:none}
+@media(min-width:768px){.sidebar {align-self:start;position:sticky;top:1.25rem;max-height:90vh;overflow:auto}.sidebar details{display:none}.wide-guide{display:block}}

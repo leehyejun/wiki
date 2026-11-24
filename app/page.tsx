@@ -1,3 +1,4 @@
+import GuideMenu from "@/components/guide-menu";
 import {CardFace} from "@/components/guide-design";
 import Countdowns from "@/components/countdowns";
 import {periodDefaults} from "@/lib/periods";
@@ -37,7 +38,7 @@ export default async function Home() {
             </Link>
             <Countdowns periods={[{label:"모집 기간",start:dates.recruitStart,end:dates.recruitEnd},{label:"서버 운영",start:dates.serverStart,end:dates.serverEnd}]}/>
             <div className="flex items-center gap-3">
-              <a href={settings["hide-index"]==="yes"?"/wiki/exploration":"#index"} className="rounded-lg border border-sky-100/40 px-4 py-2 text-sm">{t("상단-8")}</a>
+              <GuideMenu labels={{...defaults,...settings}} tabs={tabs} compact/>
               <Link href="/admin" className="rounded-lg border border-[#a85827] bg-[#ffc72c] px-4 py-2 text-sm font-bold text-[#1e2e44] shadow-[inset_0_-3px_0_#e59c20]">{t("상단-9")}</Link>
             </div>
           </div>
