@@ -54,10 +54,9 @@ export default async function Home() {
         <nav aria-label="플레이 가이드 바로가기" className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{[["exploration","index-60","index-61"],["gear","gear-title","gear-summary"],["cooking","index-62","index-63"],["orders","index-64","index-65"]].map(([slug,title,summary])=><a key={slug} href={"/wiki/"+slug} className="rounded-lg bg-[#12355b] px-3 py-3 hover:bg-[#19476e]"><strong className="block text-amber-200">{t(title)}</strong><span className="block text-sm text-sky-100">{t(summary)}</span></a>)}</nav>
       </div></section>
 
-      <details id="server" className="bg-[#0b2343]"><summary className="mx-auto max-w-6xl cursor-pointer px-5 py-3 font-semibold text-sky-100 sm:px-8">{t("상단-1")} · 홍보 이미지 보기</summary><section data-side={settings.heroSide} className="relative isolate overflow-hidden bg-[#053c85] bg-cover bg-center" style={{ backgroundImage: "url('/images/sushiro-underwater-bg.webp')" }}>
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,27,74,.82)_0%,rgba(3,35,87,.6)_44%,rgba(1,48,112,.22)_100%)]" />
+      <details id="server"><summary className="cursor-pointer bg-[#0b2343]/95 px-5 py-3 text-center font-semibold text-sky-100">{t("상단-1")} · 홍보 이미지 보기</summary><section data-side={settings.heroSide} className="relative">
         <div className="mx-auto grid w-full max-w-[1720px] grid-cols-1 items-center gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-5 lg:px-12">
-          <div className="order-2 max-w-2xl rounded-3xl bg-[#052b68]/55 p-6 shadow-[0_18px_60px_#00163c55] backdrop-blur-[2px] sm:p-9 lg:order-1 lg:bg-transparent lg:p-0 lg:shadow-none">
+          <div className="order-2 max-w-2xl rounded-3xl bg-[#052b68]/55 p-6 shadow-[0_18px_60px_#00163c55] backdrop-blur-[2px] sm:p-9 lg:order-1 lg:bg-[#052b68]/80 lg:p-7">
             <p className="inline-flex rounded-full border border-white/35 bg-[#052e72]/75 px-4 py-2 text-sm font-extrabold tracking-[.14em] text-[#ffdf50] shadow-lg">{t("server-10")}</p>
             <h1 className="mt-5 text-4xl font-black leading-[1.12] tracking-tight drop-shadow-[0_4px_0_#073976] sm:text-5xl xl:text-6xl">{t("server-11")}<br/><span className="text-[#ffdb38]">{t("server-12")}</span></h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white drop-shadow-md">{t("server-14")}</p>
